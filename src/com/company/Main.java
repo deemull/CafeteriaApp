@@ -1,22 +1,29 @@
 package com.company;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
-    static final Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) {
-//        System.out.printf("XULA ID: ");
-//        int id = read.nextInt();
-//
-        System.out.printf("Availability: ");
-        int time = read.nextInt();
 
+        //create Diner object
         Diner student = new Diner();
         System.out.println(student);
 
+        //Create a Cafeteria object
         Cafeteria cafe = new Cafeteria();
-        cafe.diningTime(time);
-        System.out.println(cafe + " " + cafe.size());
+        System.out.println(cafe);
+
+        //Output Cafeteria with 3 Diners
+        ArrayList<Diner> cafe2 = cafe.isAvailable(3);
+        System.out.println(cafe2);
+
+        //Output message for Diners who can eat
+        cafe.outputMessage(cafe2);
+
+        //Output message for Diners who couldn't eat
+
+
+
     }
 }

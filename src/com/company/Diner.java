@@ -2,16 +2,18 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Diner {
+    private Random randInt = new Random();
     private int id;
     private ArrayList<Integer> availableTimes;
 
     public Diner() {
-        id = 0;
+        id = randInt.nextInt(10) + 1;
         availableTimes = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            availableTimes.add(i);
+            availableTimes.add(randInt.nextInt(7) + 1);
         }
     }
 
