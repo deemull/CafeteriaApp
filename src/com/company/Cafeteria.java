@@ -8,7 +8,7 @@ public class Cafeteria {
     ArrayList<Diner> cafeteria;
 
     public Cafeteria() {
-        cafeteria = new ArrayList<>(3);
+        cafeteria = new ArrayList<>();
         diners = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             diners.add(new Diner());
@@ -28,7 +28,15 @@ public class Cafeteria {
 
     public void outputMessage(ArrayList<Diner> cafeteria) {
         for (int i = 0; i < cafeteria.size(); i++) {
-            System.out.println("can eat");
+            System.out.println(cafeteria.get(i) + "can eat");
+        }
+    }
+
+    public void notInCafeteria(int hour, ArrayList<Diner> cafeteria) {
+        for (int i = 0; i < cafeteria.size(); i++) {
+            if () {
+                System.out.println("couldn't eat ");
+            }
         }
     }
 
