@@ -15,8 +15,9 @@ public class Cafeteria {
     }
 
     public ArrayList<Diner> isAvailable(int hour) {
+        //diners.subList(0,3);
         for (int i = 0; i < diners.size(); i++) {
-            if (diners.get(i).getAvailableTimes().get(i) == hour) {
+            if (diners.get(i).getAvailableTimes().get(0) == hour) {
                 cafeteria.add(diners.get(i));
             }
         }
