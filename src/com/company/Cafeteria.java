@@ -1,5 +1,7 @@
 package com.company;
 
+import java.time.LocalDateTime;
+
 public class Cafeteria {
     Diner node;
     Cafeteria next;
@@ -29,19 +31,31 @@ public class Cafeteria {
         this.next = next;
     }
 
-    public void hourToDine(int hour) {
-        for (int i = 0; i < node.getAvailableTimes().size(); i++) {
-            if (node.getAvailableTimes().get(i) == hour) {
+    public boolean hasOneDiner() {
+        if(next == null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
+    public void hourToDine(int hour) {
+       int count = 0;
+        for (int i = 0; i < size(); i++) {
+            if (node.getAvailableTimes().get(i) == hour) {
+                count++;
             }
         }
     }
 
     public void diningTime(int hour) {
-        if (size() == 3 && hour == 12 || hour >= 1 && hour < 6) {
-            System.out.println("Cafe is full");
+        if (size() == 3) {
+            if (hour == 12 || hour >= 1 && hour < 6) {
+                System.out.println("Cafe is full");
+            }
         }
-        else if (hour != 12 || hour < 1 && hour > 6) {
+        else if (hour < 1 || hour > 6) {
             System.out.println("Cafe is closed");
         } else {
             System.out.println("Cafe is open ");
@@ -49,11 +63,9 @@ public class Cafeteria {
     }
 
     public void enqueue(Diner diner) {
-        Cafeteria temp = next;
-        while (temp.next != null) {
-            temp = temp.next;
+        if (next == null) {
+
         }
-        temp.setNext(new Cafeteria(diner));
     }
 
     public int size() {
