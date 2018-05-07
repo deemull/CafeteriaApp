@@ -31,7 +31,7 @@ public class Main {
                 // TODO: output a ticket showing id and the time the diner can eat
                 System.out.println("Ticket");
                 System.out.println("id: " + diner.getId());
-                System.out.println("hour: " + hour);
+                System.out.println("hour: " + diner.getAvailableTimes());
             }
             // TODO: for all dinersAtHour who couldn't eat, output the ids of all diners who could not eat at [hour]
             for (Diner diner : diners) {
