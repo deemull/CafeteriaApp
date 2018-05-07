@@ -25,12 +25,21 @@ public class Main {
             while ((dinersAtHour.size() > 0) && (cafeteria.size() <= MAX_NUM_CAFE_DINERS)) {
                 cafeteria.add(dinersAtHour.remove(0)); // diner can eat so go to cafeteria
                 // TODO: set the diner's eating status to true
-                boolean eatingStatus = true;
+                Diner diner = dinersAtHour.remove(0);
+                diner.setEatingStatus(true);
+                cafeteria.add(diner);
                 // TODO: output a ticket showing id and the time the diner can eat
-                System.out.println();
+                System.out.println("Ticket");
+                System.out.println("id: " + diner.getId());
+                System.out.println("hour: " + hour);
+            }
+            // TODO: for all dinersAtHour who couldn't eat, output the ids of all diners who could not eat at [hour]
+            for (Diner diner : diners) {
+                if (!diner.isEatingStatus()) {
+                    System.out.println("dinner id: " + diner.getId());
+                }
             }
 
-            // TODO: for all dinersAtHour who couldn't eat, output the ids of all diners who could not eat at [hour]
         }
     }
 
