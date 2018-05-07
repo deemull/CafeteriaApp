@@ -7,14 +7,23 @@ import java.util.Random;
 public class Diner {
     private Random randInt = new Random();
     private int id;
-    private ArrayList<Integer> availableTimes;
+    private ArrayList<Duration> availableTimes;
+    private boolean eatingStatus;
 
+    // TODO: Write a default Diner constructor that sets the id to 99_999
+    // and the available times to [3-5, 12-2, 4-7]
     public Diner() {
-        id = randInt.nextInt(10) + 1;
+        id = 99_999;
         availableTimes = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            availableTimes.add(randInt.nextInt(7) + 1);
-        }
+        availableTimes.add(new Duration(3, 5));
+        availableTimes.add(new Duration(0, 2));
+        availableTimes.add(new Duration(4, 7));
+    }
+
+    public Diner(int id, ArrayList<Duration> availableTimes) {
+        this.id = id;
+        this.availableTimes = availableTimes;
+        eatingStatus = false;
     }
 
     public int getId() {
@@ -25,27 +34,25 @@ public class Diner {
         this.id = id;
     }
 
-    public ArrayList<Integer> getAvailableTimes() {
+    public ArrayList<Duration> getAvailableTimes() {
         return availableTimes;
     }
 
-    public void setAvailableTimes(ArrayList<Integer> availableTimes) {
+    public void setAvailableTimes(ArrayList<Duration> availableTimes) {
         this.availableTimes = availableTimes;
+    }
+
+    public boolean isEatingStatus() {
+        return eatingStatus;
+    }
+
+    public void setEatingStatus(boolean eatingStatus) {
+        this.eatingStatus = eatingStatus;
     }
 
     @Override
     public String toString() {
-        List<String> availabilityStringList = new ArrayList<>();
-        int i = 0;
-        while (i < availableTimes.size()) {
-            int start = availableTimes.get(i);
-            int end = availableTimes.get(i+1);
-            i += 2;
-            availabilityStringList.add(start + "-" + end);
-        }
-        return id
-                + " ["
-                + String.join(", ", availabilityStringList)
-                + "] ";
+        return id + " " + availableTimes + " " + eatingStatus;
     }
+
 }
